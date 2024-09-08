@@ -86,8 +86,41 @@ This project relies on Docker for some operations. Ensure that Docker is running
 ```bash
 docker --version
 ```
+### 6. Run Agent Locally
+Open a terminal and go to the `langgraph-demo-agent` folder. Run the following command to build the docker image and create an agent service
 
-### 6. Open LangGraph Studio
+```bash
+langgraph test
+```
+### 7. Test the service
+Open another terminal and call the endpoint, to check the `latest AI News in the biotech space`.
+
+```bash
+curl --request POST \
+    --url http://localhost:8123/runs/stream \
+    --header 'Content-Type: application/json' \
+    --data '{
+    "assistant_id": "agent",
+    "input": {
+        "messages": [
+            {
+                "role": "user",
+                "content": "Give me the latest AI News in the biotech space"
+            }
+        ]
+    },
+    "metadata": {},
+    "config": {
+        "configurable": {}
+    },
+    "multitask_strategy": "reject",
+    "stream_mode": [
+        "values"
+    ]
+}'
+```
+
+### 8. OPTIONAL: Integrate UI using LangGraph Studio
 
 If you want to visualize and debug the agent flow, now you can use LangGraph Studio:
 
@@ -97,11 +130,23 @@ If you want to visualize and debug the agent flow, now you can use LangGraph Stu
 
 ## Completing the Assignment
 
-Once the agent is running, you will be able to interact with it based on the assignment requirements. Follow the course instructions to complete the tasks and submit your results.
+Once the agent is running, you can interact with it.
 
 ## Additional Resources
 
-- [LangGraph Documentation](https://langchain-ai.github.io/langgraph/)
-- [LangSmith Documentation](https://smith.langchain.com/docs/)
+[Langchain Ecosystem](https://python.langchain.com/v0.2/docs/introduction/)
+
+`Langchain key components`:
+[Chat models](https://python.langchain.com/v0.2/docs/concepts/#chat-models)
+[LLMs](https://python.langchain.com/v0.2/docs/concepts/#llms)
+[Message](https://python.langchain.com/v0.2/docs/concepts/#messages)
+[Prompt Templates](https://python.langchain.com/v0.2/docs/concepts/#prompt-templates)
+[Tools](https://python.langchain.com/v0.2/docs/concepts/#tools)
+[Agents](https://python.langchain.com/v0.2/docs/concepts/#agents)
+
+[LangGraph Key Concepts](https://langchain-ai.github.io/langgraph/concepts/)
+[LangGraph Documentation](https://langchain-ai.github.io/langgraph/)
+
+[LangSmith Documentation](https://smith.langchain.com/docs/)
 
 Good luck with the assignment!
