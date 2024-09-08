@@ -12,8 +12,8 @@ assignments/
         ├── agent.py
         ├── langgraph.json
         ├── requirements.txt
+        ├── .env_example
     ├── README.md
-    ├── .env_example
 ```
 
 ## Download
@@ -128,7 +128,7 @@ If you want to visualize and debug the agent flow, now you can use LangGraph Stu
 
 ## Completing the Assignment
 
- After following the steps above, you should have a fully operational LangGraph Agent Service running locally on your machine. To complete the assignment `Verify the setup by making sure the service is responding correctly to input prompts send via API requests`.
+ After following the steps above, you should have a fully operational LangGraph Agent Service running locally on your machine. To complete the assignment `Verify that the Agent service is setup correctly by validating the response from the service to input prompts sent via API requests`.
 
 ## Additional Resources
 
