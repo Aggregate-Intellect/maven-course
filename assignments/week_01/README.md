@@ -1,7 +1,7 @@
 
 # Assignment 1: LangGraph Demo Agent
 
-Welcome to Assignment 1 of your course. In this assignment, you will be working with a LangGraph demo agent. Follow the instructions below to set up your environment and get started with the assignment.
+Welcome to Assignment 1 of your course. The primary objective of this assignment is to ensure that you successfully set up all the essential tools required for the various assignments and team projects you will encounter throughout the course. These tools include LangGraph, Docker, and OpenAI, among others. In this assignment, you will be creating a LangGraph demo agent. Follow the instructions below to set up your environment and get started with the assignment.
 
 ## Directory Structure
 
@@ -126,9 +126,9 @@ If you want to visualize and debug the agent flow, now you can use LangGraph Stu
 - Choose the `langgraph-demo-agent` folder as the project folder in LangGraph Studio.
 - Use the UI to run, debug, and interact with the agent visually.
 
-## Assignment Objective
+## Completing the Assignment
 
-The primary objective of this assignment is to ensure that you successfully set up all the essential tools required for the various assignments and team projects you will encounter throughout the course. These tools include LangGraph, Docker, and OpenAI, among others. After following the steps above, you should have a fully operational LangGraph Agent Service running locally on your machine. `To verify the setup make sure the service is responding correctly to input prompts send via API requests`.
+ After following the steps above, you should have a fully operational LangGraph Agent Service running locally on your machine. To complete the assignment `Verify the setup by making sure the service is responding correctly to input prompts send via API requests`.
 
 ## Additional Resources
 
