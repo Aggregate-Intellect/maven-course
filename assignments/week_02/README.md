@@ -1,76 +1,73 @@
+# Assignment 2: Proposal Generation Agent
 
-# Assignment 1: LangGraph Demo Agent
+Welcome to Assignment 2 of your course. In this assignment, you will build an agent that generates a proposal for pitching a new weight loss drug to Bausch Health, a Canadian pharmaceutical company. You'll use the LangGraph, OpenAI, and Tavily search API tools that you set up in the [previous assignment](https://github.com/Aggregate-Intellect/maven-course/blob/main/assignments/week_01/README.md).
 
-Welcome to Assignment 1 of your course. The primary objective of this assignment is to ensure that you successfully set up all the essential tools required for the various assignments and team projects you will encounter throughout the course. These tools include LangGraph, Docker, and OpenAI, among others. In this assignment, you will be creating a LangGraph demo agent. Follow the instructions below to set up your environment and get started with the assignment.
+## Objective
 
-## Directory Structure
+Your task is to create an agent that researches Bausch Health and generates a comprehensive proposal for pitching a new weight loss drug to the company.
 
-```
-assignments/
-└── week_01/
-    └── langgraph-demo-agent/
-        ├── agent.py
-        ├── langgraph.json
-        ├── requirements.txt
-        ├── .env_example
-    ├── README.md
-```
+## Prerequisites
 
-## Download
+Before starting this assignment, ensure you have completed Assignment 1 and have all the necessary tools and environment set up. If you haven't done so, please refer to the README file from Assignment 1 [here](https://github.com/Aggregate-Intellect/maven-course/blob/main/assignments/week_01/README.md) and follow the setup instructions.
 
-Before proceeding, ensure that you have the following tools installed on your system:
+## Assignment Tasks
 
-### Docker
+### 1. Implement the Search Tool
 
-- Install Docker Desktop for your system. You can follow the official [Docker Desktop installation guide](https://docs.docker.com/engine/install/).
+Your first task is to implement the Tavily search tool. This tool will be crucial for gathering information about Bausch Health.
 
-## Setup Instructions
+Make sure you understand what the code does and why we're using the Tavily search tool.
 
-### 1. Clone the Repository
+### 2. Create the Proposal Agent
 
-First, clone the repository to your local system.
+Next, you need to define a ReAct Agent using LangGraph. This agent should have access to the Tavily search tool you just created. 
 
-```bash
-git clone https://github.com/Aggregate-Intellect/maven-course.git
-cd assignments/week_01/langgraph-demo-agent
-```
+Think about why we're using a ReAct Agent and how it will help in generating the proposal.
 
-### 2. Set Up a Virtual Environment
+### 3. Create the Proposal Agent Prompt
 
-It's recommended to create a virtual environment to manage dependencies.
+Now, create a prompt for your agent. This prompt should give clear instructions on how to generate the proposal. Consider including the following elements in your prompt:
 
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
+- Clear instructions for the agent
+- Details to be included in the output (e.g., expected cost to produce the drug)
+- Structure of the output
 
-### 3. Install Dependencies
+Here's an example to get you started:
 
-All required packages for LangGraph to setup are listed in the `requirements.txt` file. Install them using the following command:
+```python
+prompt = """
+You are an AI assistant tasked with creating a proposal for a new weight loss drug to pitch to Bausch Health. 
+Use the Tavily search tool to gather information about Bausch Health and the pharmaceutical industry.
 
-```bash
-pip install -r requirements.txt
-```
+Your proposal should include:
+1. Executive Summary
+2. Company Overview (Bausch Health)
+3. Product Description
+4. Market Analysis
+5. Marketing Strategy
+6. Financial Projections
+   - Include estimated production costs
+   - Projected sales and revenue
+7. Conclusion
 
-### 4. Set Up Environment Variables
+Ensure your proposal is well-structured, informative, and persuasive.
+"""
 
-You need to create a `.env` file to store API keys. This file is critical for running the agent.
-
-1. Create a `.env` file by copying the example provided:
-
-```bash
-cp .env_example .env
+# Your task: Refine and expand this prompt as needed
 ```
 
-2. Fill in the required API keys (e.g., [OpenAI](https://openai.com/index/openai-api/), [Tavily](https://docs.tavily.com/docs/gpt-researcher/getting-started)):
+Consider why each section of the proposal is important and how it contributes to a compelling pitch.
 
-```bash
-# Example:
-echo "OPENAI_API_KEY='your-openai-api-key-here'" > .env
-echo "TAVILY_API_KEY='tavily-api-key-here'" >> .env
-```
+### 4. Implement the Workflow
 
-Make sure you have the keys ready from the respective services.
+Your final task is to implement the entire workflow using LangGraph. Your implementation should:
+
+1. Initialize the Tavily search tool
+2. Create the ReAct Agent with your custom prompt
+3. Set up the LangGraph workflow
+4. Execute the workflow to generate the proposal
+
+Think about how each component fits together to create a cohesive workflow.
 
 ### 5. Verify Docker Setup
 
@@ -85,11 +82,13 @@ Open a terminal and go to the `langgraph-demo-agent` folder. Run the following c
 ```bash
 langgraph test
 ```
+
 ### 7. Test the service
-Open another terminal and call the endpoint, to check the `latest AI News in the biotech space`. To test with different prompts replace the `content` field in the request.
+
+Open another terminal and call the endpoint, to generate the proposal. 
+
 
 ```bash
-# Example:
 curl --request POST \
     --url http://localhost:8123/runs/stream \
     --header 'Content-Type: application/json' \
@@ -99,7 +98,7 @@ curl --request POST \
         "messages": [
             {
                 "role": "user",
-                "content": "Give me the latest AI News in the biotech space"
+                "content": "Generate a proposal for pitching our new weight loss drug to Bausch Health"
             }
         ]
     },
@@ -116,11 +115,12 @@ curl --request POST \
 
 ### 8. OPTIONAL: Integrate UI using LangGraph Studio
 
-- Currently, LangGraph Studio only supports macOS. To use LangGraph Studio with other OS you'll have to use VirtualBOx with MacOS. To install LangGraph Studio on MacOS follow these steps:
+Currently, LangGraph Studio only supports macOS. To use LangGraph Studio with other OS, you'll have to use VirtualBox with macOS. To install LangGraph Studio on macOS, follow these steps:
+
 - Download the latest `.dmg` file of LangGraph Studio by clicking [here](https://langgraph-studio.vercel.app/api/mac/latest).
 - LangGraph Studio requires docker-compose version 2.22.0+ or higher. Please ensure you have [Docker Desktop](https://docs.docker.com/engine/install/) installed and running before continuing.
 
-If you want to visualize and debug the agent flow, now you can use LangGraph Studio:
+If you want to visualize and debug the agent flow, you can use LangGraph Studio:
 
 - Open the application and authenticate via LangSmith.
 - Choose the `langgraph-demo-agent` folder as the project folder in LangGraph Studio.
@@ -128,23 +128,10 @@ If you want to visualize and debug the agent flow, now you can use LangGraph Stu
 
 ## Completing the Assignment
 
- After following the steps above, you should have a fully operational LangGraph Agent Service running locally on your machine. To complete the assignment `Verify that the Agent service is setup correctly by validating the response from the service to input prompts sent via API requests`.
+After following the steps above, you should have a fully operational LangGraph Agent Service running locally on your machine. To complete the assignment, verify that the Agent service is set up correctly by validating the response from the service to input prompts sent via API requests.
+
+Remember, the goal is not just to complete the assignment, but to understand how these tools can be used to create an intelligent agent capable of complex tasks. Good luck with your assignment!
 
 ## Additional Resources
 
-[Langchain Ecosystem](https://python.langchain.com/v0.2/docs/introduction/)
-
-`Langchain key components`:
-[Chat models](https://python.langchain.com/v0.2/docs/concepts/#chat-models)
-[LLMs](https://python.langchain.com/v0.2/docs/concepts/#llms)
-[Message](https://python.langchain.com/v0.2/docs/concepts/#messages)
-[Prompt Templates](https://python.langchain.com/v0.2/docs/concepts/#prompt-templates)
-[Tools](https://python.langchain.com/v0.2/docs/concepts/#tools)
-[Agents](https://python.langchain.com/v0.2/docs/concepts/#agents)
-
-[LangGraph Key Concepts](https://langchain-ai.github.io/langgraph/concepts/)
-[LangGraph Documentation](https://langchain-ai.github.io/langgraph/)
-
-[LangSmith Documentation](https://smith.langchain.com/docs/)
-
-Good luck with the assignment!
+To aid you in this assignment, refer to these resources:
