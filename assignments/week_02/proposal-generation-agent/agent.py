@@ -55,6 +55,7 @@ workflow.add_edge("tools", 'agent')
 
 # Initialize memory to persist state between graph runs
 checkpointer = MemorySaver()
+
 # This compiles it into a LangChain Runnable,
 # meaning you can use it as you would any other runnable.
 # Note that we're (optionally) passing the memory when compiling the graph

@@ -4,11 +4,12 @@ Welcome to Assignment 2 of your course. In this assignment, you will build an ag
 
 ## Objective
 
-Your task is to create an agent that researches Bausch Health and generates a comprehensive proposal for pitching a new weight loss drug to the company.
+Your task is to create an agent that researches details about Bausch Health and generates a comprehensive proposal for pitching a new weight loss drug to the company.
 
 ## Prerequisites
 
-Before starting this assignment, ensure you have completed Assignment 1 and have all the necessary tools and environment set up. If you haven't done so, please refer to the README file from Assignment 1 [here](https://github.com/Aggregate-Intellect/maven-course/blob/main/assignments/week_01/README.md) and follow the setup instructions.
+Before starting this assignment, ensure you have completed Assignment 1 and have all the necessary tools and environment set up. If you haven't done so, please refer to the README file from Assignment 1 [here](https://github.com/Aggregate-Intellect/maven-course/blob/main/assignments/week_01/README.md) and follow the setup instructions. 
+Make sure to create a .env file proposal-generation-agent similar to week1 assignment with API keys for OPENAI and TAVILY. The api keys shouldn't be enclosed in braces, braackets or quotes etc..
 
 ## Assignment Tasks
 
@@ -77,7 +78,7 @@ This project relies on Docker for some operations. Ensure that Docker is running
 docker --version
 ```
 ### 6. Run Agent Locally
-Open a terminal and go to the `langgraph-demo-agent` folder. Run the following command to build the docker image and create an agent service
+Open a terminal and go to the `proposal-generation-agent` folder. Run the following command to build the docker image and create an agent service
 
 ```bash
 langgraph test
@@ -85,8 +86,35 @@ langgraph test
 
 ### 7. Test the service
 
-Open another terminal and call the endpoint, to generate the proposal. 
+Open another terminal and call the endpoint, to generate the proposal. Please ensure that the port 8123 is available to run this service. You can check that by running the following:
+ 
+ Mac and Linux:
 
+```bash
+lsof -i :8123
+```
+
+Windows:
+
+```bash
+netstat -an | find "8123"
+```
+
+If the port is in use, it will appear in the output make sure to note down the process id (PID) of the process running on the port. If nothing appears, the port is available. If the port is in use, and running a non critical process you can kill that process to make the port available again by doing the following:
+
+Mac or Linux:
+
+```bash
+kill -9 PID
+```
+
+Windows 
+
+```bash
+taskkill /PID PID /F
+```
+
+Once port is available to test the servie run:
 
 ```bash
 curl --request POST \
@@ -123,15 +151,20 @@ Currently, LangGraph Studio only supports macOS. To use LangGraph Studio with ot
 If you want to visualize and debug the agent flow, you can use LangGraph Studio:
 
 - Open the application and authenticate via LangSmith.
-- Choose the `langgraph-demo-agent` folder as the project folder in LangGraph Studio.
+- Choose the `proposal-generation-agent` folder as the project folder in LangGraph Studio.
 - Use the UI to run, debug, and interact with the agent visually.
 
 ## Completing the Assignment
 
 After following the steps above, you should have a fully operational LangGraph Agent Service running locally on your machine. To complete the assignment, verify that the Agent service is set up correctly by validating the response from the service to input prompts sent via API requests.
 
-Remember, the goal is not just to complete the assignment, but to understand how these tools can be used to create an intelligent agent capable of complex tasks. Good luck with your assignment!
+Remember, the goal is not just to complete the assignment, but to understand how these tools can be used to create an intelligent agent capable of complex tasks. Good luck with your assignment! 
+Also in case you prefer working with notebooks or have any issues with setting up required tools as part of week 1 assignment, you can open the notebook in the week02 folder of the repo on [google colab](https://colab.research.google.com/) in place of running the agent locally.
 
 ## Additional Resources
 
 To aid you in this assignment, refer to these resources:
+- [Open AI Prompt Engineering Guide](https://platform.openai.com/docs/guides/prompt-engineering)
+- [Tavily Search Langchain](https://python.langchain.com/v0.2/docs/integrations/tools/tavily_search/)
+- [Build ReAct Agent With LangGraph](https://langchain-ai.github.io/langgraph/how-tos/react-agent-from-scratch/)
+
