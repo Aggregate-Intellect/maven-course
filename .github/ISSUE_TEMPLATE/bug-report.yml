@@ -32,7 +32,7 @@ body:
       label: "Are you blocked because of this?"
       options:
         - "Yes"
-       - "No"
+        - "No"
     validations:
       required: true
   - type: markdown
