@@ -174,9 +174,6 @@ After following the steps above, you should have an enhanced Proposal Generation
    - Check that the supervisor correctly manages the transitions between the Researcher and Coder agents.
    - Validate that each agent performs its designated tasks without errors.
 
-3. Submit Your Work:
-   - Ensure all code files (`agent.py`, `prompts.py`, `langgraph.json`, `requirements.txt`) and the `Week3Assignment.ipynb` notebook are up to date.
-   - Push your changes to the repository as per the submission guidelines.
 
 ## Additional Resources
 
