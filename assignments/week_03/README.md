@@ -14,11 +14,13 @@ Before starting this assignment, ensure you have completed Assignment 2 and have
 
 Ensure you have the following:
 
-- **Environment Setup**: A `.env` file named `proposal-generation-agent` with API keys for OPENAI and TAVILY. The API keys should not be enclosed in braces, brackets, or quotes.
+- **Environment Setup**: A `.env` file under `proposal-and-roi-generation-agent` folder with API keys for OPENAI and TAVILY. The API keys should not be enclosed in braces, brackets, or quotes.
 - **Docker**: Ensure Docker is installed and running on your machine.
 - **LangGraph Tools**: Familiarity with LangGraph and its integration with LangChain.
 
 ## Assignment Tasks
+
+### Recommended:
 
 ### 1. Understand the Enhanced Workflow
 
@@ -47,7 +49,13 @@ Enhance the prompts in `prompts.py` to provide clear instructions for both the s
 
 Consider refining the prompts to ensure that each agent performs its designated task effectively and that the supervisor correctly manages the workflow transitions.
 
-### 4. Configure LangGraph
+### 4. After understanding the code, you can just run the notebook in colab.
+
+### 5. Open the `Week3Assignment.ipynb` in colab, provide the required api keys, and run all cells.
+
+## If you prefer to do the assignment by running the setup locally the recommendation is to do it on langgraph studio if you don't have access to langgraph studio or you want to test service in your terminal you can follow these steps:
+
+### 6. Configure LangGraph
 
 Review and update the `langgraph.json` file to ensure it accurately reflects the dependencies and graph configurations required for the enhanced workflow.
 
@@ -63,9 +71,9 @@ Review and update the `langgraph.json` file to ensure it accurately reflects the
 
 Ensure that all dependencies are correctly listed and that the graph points to the appropriate workflow definition in `agent.py`.
 
-### 5. Install Required Dependencies
+### 7. Install Required Dependencies
 
-Navigate to the `proposal-generation-agent` folder and install the necessary Python packages using `requirements.txt`.
+Navigate to the `proposal-and-roi-generation-agent` folder and install the necessary Python packages using `requirements.txt`.
 
 ```bash
 pip install -r requirements.txt
@@ -73,7 +81,7 @@ pip install -r requirements.txt
 
 Ensure all dependencies, including `langchain`, `langgraph`, `dotenv`, and other required libraries, are installed.
 
-### 6. Verify Docker Setup
+### 8. Verify Docker Setup
 
 This project relies on Docker for running the LangGraph services. Ensure that Docker is installed and running on your machine.
 
@@ -85,7 +93,7 @@ docker --version
 
 If Docker is not running, start it before proceeding.
 
-### 7. Run the Agent Locally
+### 9. Run the Agent Locally
 
 Open a terminal and navigate to the `proposal-and-roi-generation-agent` folder. Build the Docker image and start the agent service by running:
 
@@ -93,7 +101,7 @@ Open a terminal and navigate to the `proposal-and-roi-generation-agent` folder. 
 langgraph test
 ```
 
-### 8. Test the Service
+### 10. Test the Service
 
 Open another terminal and ensure that port 8123 is available. Check the port status:
 
@@ -146,7 +154,7 @@ curl --request POST \
 }'
 ```
 
-### 9. OPTIONAL: Integrate UI using LangGraph Studio
+### 11. OPTIONAL: Integrate UI using LangGraph Studio
 
 LangGraph Studio provides a visual interface to interact with and debug your agent workflow. Currently, it supports only macOS. To use LangGraph Studio on other operating systems, set up a macOS virtual environment using VirtualBox.
 
@@ -161,7 +169,7 @@ Installation Steps on macOS:
 
 3. Run LangGraph Studio:
    - Open the application and authenticate via LangSmith.
-   - Select the `proposal-generation-agent` folder as the project directory.
+   - Select the `proposal-and-roi-generation-agent` folder as the project directory.
    - Use the UI to run, debug, and visualize the agent workflow.
 
 ## Completing the Assignment
