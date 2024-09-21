@@ -1,7 +1,8 @@
 import os
-from typing import Literal, Annotated, Sequence, TypedDict, List
+from typing import Literal, Annotated, Sequence, TypedDict
 from langchain_openai import ChatOpenAI
 from langgraph.graph import END, START, StateGraph
+from langgraph.checkpoint.memory import MemorySaver
 from langgraph.prebuilt import create_react_agent
 from langchain_core.messages import HumanMessage, BaseMessage
 from langchain_community.tools.tavily_search import TavilySearchResults
@@ -83,5 +84,8 @@ workflow.add_conditional_edges("supervisor", lambda x: x["next"], conditional_ma
 # Add the starting edge
 workflow.add_edge(START, "supervisor")
 
+# Set up memory
+memory = MemorySaver()
+
 # Compile the workflow
-graph = workflow.compile(interrupt_before=["Coder"])
+graph = workflow.compile(checkpointer=memory,interrupt_before=["Coder"])

@@ -1,6 +1,8 @@
 # Assignment 3: Enhanced Proposal Generation Agent
 
-Welcome to Assignment 3 of your course. In this assignment, you will extend the Proposal Generation Agent developed in Assignment 2. This week, you'll enhance the agent's capabilities by introducing a supervisory workflow, integrating additional tools, and refining the proposal generation process using LangGraph and advanced LangChain functionalities.
+Welcome to Assignment 3 of your course. In this assignment, you will extend the Proposal Generation Agent developed in Assignment 2. This week, you'll enhance the agent's capabilities by introducing a supervisory workflow, integrating additional tools, and refining the proposal generation process using LangGraph and advanced LangChain functionalities. Please note langgraph supports multiple type of multi agent workflow in this week we are going to look at an autonomous supervisor based workflow. This workflow has a superviosr LLM that has access to multiple agents and depending on the given task it selects different agent to perform the task or the subtask. Due to this nature there is a possibility of agents being stuck in a loop communicating with each other a common challenge with Multi Agent systems. In this assignmnt we tend to resolve it using prompt engineering, but in following weeks we will look at more robuts multi agentic architecture supported by langgraph.
+
+*Since the assignment involves human in the loop component which requires interupting and restarting graph execution the recommended way of doing this assignment is via notebook or langgraph studio*.
 
 ## Objective
 
@@ -85,7 +87,7 @@ If Docker is not running, start it before proceeding.
 
 ### 7. Run the Agent Locally
 
-Open a terminal and navigate to the `proposal-generation-agent` folder. Build the Docker image and start the agent service by running:
+Open a terminal and navigate to the `proposal-and-roi-generation-agent` folder. Build the Docker image and start the agent service by running:
 
 ```bash
 langgraph test
