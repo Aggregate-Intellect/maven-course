@@ -4,3 +4,4 @@ tavily-python
 langchain_community
 langgraph-cli
 langchain_experimental
+python-dotenv
