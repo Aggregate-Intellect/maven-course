@@ -61,7 +61,7 @@ def call_research_model(state: AgentState, config: RunnableConfig):
     responses based on the current state and user query.
     """
     system_prompt = SystemMessage("You are a helpful AI assistant, please respond to the user's query to the best of your ability!")
-    model = ChatOpenAI(model="gpt-4-0613")
+    model = ChatOpenAI(model="gpt-4o-mini")
     tools = [tavily_tool]
     model = model.bind_tools(tools)
     response = model.invoke([system_prompt] + state['messages'], config)
@@ -73,7 +73,7 @@ def respond(state: AgentState):
     Function to generate a structured response using the ResearcherResponse model.
     This formulates the proposal based on the research conducted.
     """
-    model = ChatOpenAI(model="gpt-4-0613")
+    model = ChatOpenAI(model="gpt-4o-mini")
     response = model.with_structured_output(ResearcherResponse).invoke([HumanMessage(content=state['messages'][-1].content)])
     return {'proposal': state['messages'][-1].content, "researcher_response": response}
 
@@ -87,7 +87,7 @@ def call_critique_model(state: AgentState, config: RunnableConfig):
     If it seems like the proposal is fine, then in proposal feedback mention that the proposal is good and accept the proposal.
     Otherwise provide concise proposal feedback and reject the proposal.
     """
-    model = ChatOpenAI(model="gpt-4-0613")
+    model = ChatOpenAI(model="gpt-4o-mini")
     messages = [
         {"role": "user", "content": critique_prompt},
         {"role": "assistant", "content": state['proposal']},

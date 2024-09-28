@@ -74,13 +74,13 @@ Enhance the conditional logic in the workflow:
 - Ensure the workflow correctly handles different scenarios (e.g., proposal acceptance, rejection, maximum iterations).
 
 
-### 4. After understanding the code, you can just run the notebook in colab.
+### 7. After understanding the code, you can just run the notebook in colab.
 
-### 5. Open the `Week4Assignment.ipynb` in colab, provide the required api keys, and run all cells.
+### 8. Open the `Week4Assignment.ipynb` in colab, provide the required api keys, and run all cells.
 
 ### If you prefer to do the assignment by running the setup locally the recommendation is to do it on langgraph studio if you don't have access to langgraph studio or you want to test service in your terminal you can follow these steps:
 
-### 6. Configure LangGraph
+### 9. Configure LangGraph
 
 Review and update the `langgraph.json` file to ensure it accurately reflects the dependencies and graph configurations required for the enhanced workflow.
 
@@ -96,7 +96,7 @@ Review and update the `langgraph.json` file to ensure it accurately reflects the
 
 Ensure that all dependencies are correctly listed and that the graph points to the appropriate workflow definition in `agent.py`.
 
-### 7. Install Required Dependencies
+### 10. Install Required Dependencies
 
 Navigate to the `proposal-and-roi-generation-agent` folder and install the necessary Python packages using `requirements.txt`.
 
@@ -106,7 +106,7 @@ pip install -r requirements.txt
 
 Ensure all dependencies, including `langchain`, `langgraph`, `dotenv`, and other required libraries, are installed.
 
-### 8. Verify Docker Setup
+### 11. Verify Docker Setup
 
 This project relies on Docker for running the LangGraph services. Ensure that Docker is installed and running on your machine.
 
@@ -118,7 +118,7 @@ docker --version
 
 If Docker is not running, start it before proceeding.
 
-### 9. Run the Agent Locally
+### 12. Run the Agent Locally
 
 Open a terminal and navigate to the `proposal-and-roi-generation-agent` folder. Build the Docker image and start the agent service by running:
 
@@ -126,7 +126,7 @@ Open a terminal and navigate to the `proposal-and-roi-generation-agent` folder. 
 langgraph test
 ```
 
-### 10. Test the Service
+### 13. Test the Service
 
 Open another terminal and ensure that port 8123 is available. Check the port status:
 
@@ -178,6 +178,42 @@ curl --request POST \
     ]
 }'
 ```
+
+## User Input for Graph Invocation
+To invoke the graph execution, users need to provide specific prompts. This can be done either in the terminal or using LangGraph Studio. Below is an example of the user input prompt from the notebook that triggers the graph:
+
+```
+You are an AI assistant tasked with creating a proposal for a new weight loss drug to pitch to Bausch Health.
+Use the Tavily search tool to gather information about Bausch Health and the pharmaceutical industry.
+
+Your proposal should include:
+1. Executive Summary
+2. Company Overview (Bausch Health)
+3. Product Description
+4. Market Analysis
+5. Marketing Strategy
+6. Financial Projections
+   - Include estimated production costs
+   - Projected sales and revenue
+7. Projections for Net_Profit for next 3 years
+8. Projections for Cost_of_Investment for next 3 years
+
+Ensure your proposal is well-structured, informative, and persuasive.
+```
+### In the Terminal
+If using the terminal, you can invoke the graph by making a curl request similar to the one shared above but with the given prompt.
+
+### In LangGraph Studio
+For users utilizing LangGraph Studio, you can input the same prompt directly into the UI interface, triggering the execution of the graph and allowing for real-time human interaction.
+
+## Example of Human-in-the-Loop Modifying Graph State
+In colab notebook, human input can be provided to modify the state of the graph. For instance, here’s how a user can change the net profit forecast for Year 3:
+
+```
+state['researcher_response'].Net_Profit_year_3 = 29000000.0
+```
+
+This example demonstrates how human feedback can update the workflow in real time.
 
 ## Completing the Assignment
 
