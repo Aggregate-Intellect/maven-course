@@ -19,7 +19,6 @@ load_dotenv()
 
 # Initialize tools
 tavily_tool = TavilySearchResults(max_results=2)
-python_repl_tool = PythonREPLTool()
 
 # Define structured outputs for our agents
 class ResearcherResponse(BaseModel):
@@ -142,7 +141,7 @@ def call_coder_model(state: AgentState, config: RunnableConfig):
         {"role": "user", "content": coder_prompt},
         {"role": "assistant", "content": coder_agent_context},
     ]
-    model = ChatOpenAI(model="gpt-4-0613")
+    model = ChatOpenAI(model="gpt-4o-mini")
     response = model.invoke(messages, config)
     return {"graph_code": response.content}
 
