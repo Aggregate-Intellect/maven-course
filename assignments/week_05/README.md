@@ -20,7 +20,7 @@ Ensure you have:
 ### Option 1: Deploying to LangGraph Cloud
 LangGraph Cloud is a managed service for deploying and hosting LangGraph applications. It allows you to expose the functionality of your LangGraph system through Assistants—an abstraction that provides API endpoints for your cognitive graph architecture.
 
-If your agentic system is functioning locally on LangGraph Studio or your terminal, your next step is to deploy it to the cloud, making it accessible from anywhere, similar to a production application.
+If your agentic system is functioning locally on LangGraph Studio or your terminal, your next step is to deploy it to the cloud, making it accessible from anywhere, similar to a production-grade application.
 
 To deploy your LangGraph application to LangGraph Cloud, refer to the following guide:
 
@@ -31,7 +31,7 @@ LangGraph Cloud Quick Start Guide: https://langchain-ai.github.io/langgraph/clou
 ### Option 2: Integrating Gradio Dashboard
 If you're not using LangGraph Cloud, we’ve provided an alternative method: running your agentic system locally and making it globally accessible through a Gradio dashboard.
 
-This option allows users around the world to interact with your application via the Gradio UI. However, be aware that with Gradio it not straighforward to integerate advanced features of LangGraph, such as human-in-the-loop interactions or pausing and resuming graph execution. If your system relies on these concepts, Gradio will not be a viable solution.
+This option allows users around the world to interact with your application via the Gradio UI. However, be aware that with Gradio it's not straightforward to integrate advanced features of LangGraph, such as human-in-the-loop interactions or pausing and resuming graph execution. If your system relies on these concepts, Gradio will not be a viable solution.
 
 In this week’s assignment folder, you will find a `gradio_ui.py` file that adds a Gradio-based frontend to your agentic application.
 
@@ -42,7 +42,7 @@ Follow these steps to integrate Gradio and run your agent locally.
 Review the provided gradio_ui.py file in this week’s folder to understand how Gradio integrates with your LangGraph agent.
 
 #### 2. Running the Agent Locally
-Navigate to the proposal-generation-agent folder from week_02 assignment, open a terminal, and run the following command to build the Docker image and create an agent service:
+Navigate to the proposal-generation-agent (since it doesn't use human in the loop concept) folder from week_02 assignment, open a terminal, and run the following command to build the Docker image and create an agent service:
 
 ```bash
 langgraph test
