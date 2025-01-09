@@ -1,5 +1,6 @@
 langgraph
 langchain_openai
 tavily-python
+langgraph-api
 langchain_community
-langgraph-cli
+langgraph-cli[inmem]
