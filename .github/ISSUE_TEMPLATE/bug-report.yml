@@ -19,9 +19,18 @@ body:
       label: Steps to reproduce (optional)
       placeholder: |
         1. Go to week 1 assignment folder
-        2. Run langgraph test
+        2. Run langgraph dev
     validations:
       required: false
+  - type: textarea
+    id: steps
+    attributes:
+      label: Details about the environment
+      placeholder: |
+        1. Python version: 3.10
+        2. Operating system: Windows
+    validations:
+      required: True
   - type: textarea
     id: screenshots
     attributes:
