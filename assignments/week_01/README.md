@@ -24,6 +24,7 @@ First, clone the repository to your local system.
 
 ```bash
 git clone https://github.com/Aggregate-Intellect/maven-course.git
+cd maven-course
 cd assignments/week_01/langgraph-demo-agent
 ```
 
@@ -33,7 +34,18 @@ It's recommended to create a virtual environment to manage dependencies.
 
 ```bash
 python3 -m venv venv
+```
+
+Linux:
+
+```bash
 source venv/bin/activate
+```
+
+Windows:
+
+```bash
+venv\Scripts\activate
 ```
 
 ### 3. Install Dependencies
@@ -54,7 +66,7 @@ You need to create a `.env` file to store API keys. This file is critical for ru
 cp .env_example .env
 ```
 
-2. Fill in the required API keys (e.g., [OpenAI](https://openai.com/index/openai-api/), [Tavily](https://docs.tavily.com/docs/how_to/#gpt-researcher/getting-started)):
+2. Fill in the required API keys (e.g., [OpenAI](https://openai.com/index/openai-api/), [Tavily](https://app.tavily.com/)):
 
 ```bash
 # Example:
