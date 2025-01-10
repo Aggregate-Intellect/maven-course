@@ -23,7 +23,7 @@ body:
     validations:
       required: false
   - type: textarea
-    id: steps
+    id: environment
     attributes:
       label: Details about the environment
       placeholder: |
