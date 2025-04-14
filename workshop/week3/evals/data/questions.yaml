@@ -1,0 +1,60 @@
+questions:
+  - question: "What is the average improvement in success rate achieved by Diffusion Policy across benchmarks?"
+    answer: "Diffusion Policy shows an average improvement of 46.9% in success rate across the tested benchmarks."
+    category: "internal"
+
+  - question: "How does the time-series diffusion transformer address the over-smoothing issue in CNNs?"
+    answer: "It uses transformer decoder blocks with causal attention and cross-attention to maintain high-frequency action changes."
+    category: "internal"
+
+  - question: "What is the realizability problem reformulated as in the context of the second paper?"
+    answer: "It is reformulated as an infinite-dimensional truncated moment problem on point configuration spaces."
+    category: "internal"
+
+  - question: "Which theorem is used to embed the realizability problem into the unified framework in the second paper?"
+    answer: "The generalized truncated Riesz-Haviland theorem from [8, Theorem 3.8] is used."
+    category: "internal"
+
+  - question: "What network architecture does the Diffusion Policy paper recommend starting with?"
+    answer: "It recommends starting with the CNN-based diffusion policy implementation due to its stability and ease of use."
+    category: "internal"
+
+  - question: "What are the latest benchmarks used in evaluating diffusion-based policies beyond RoboMimic?"
+    answer: "This requires up-to-date information from recent papers or benchmark releases beyond those cited in the paper."
+    category: "external"
+
+  - question: "Have diffusion models been used in reinforcement learning beyond imitation learning?"
+    answer: "Answer requires a review of recent literature and applications of diffusion models in reinforcement learning."
+    category: "external"
+
+  - question: "Are there practical robotic systems currently using Diffusion Policy in industrial settings?"
+    answer: "This requires current information from industry reports or case studies beyond what’s mentioned in the paper."
+    category: "external"
+
+  - question: "What are the most recent generalizations of the moment problem in non-commutative algebras?"
+    answer: "Answer requires current mathematical literature that extends the truncated moment problem to non-commutative settings."
+    category: "external"
+
+  - question: "Is there any open-source implementation of the realizability problem framework using the methods described?"
+    answer: "This would require checking online repositories or recent publications citing the second paper."
+    category: "external"
+
+  - question: "Why might a transformer-based policy perform better on high-frequency control tasks than a CNN-based one?"
+    answer: "Transformers can model long-term dependencies and temporal variability better than CNNs, which tend to smooth out rapid changes."
+    category: "reasoning"
+
+  - question: "How does conditioning on visual observations impact inference speed in Diffusion Policy?"
+    answer: "By treating visual input as conditioning rather than part of the joint distribution, it reduces redundant computation per denoising step, enabling faster inference."
+    category: "reasoning"
+
+  - question: "In what scenarios might the CNN-based Diffusion Policy fail compared to the transformer-based version?"
+    answer: "When tasks require quick and sharp action changes or high-frequency control, the CNN-based model may underperform due to its smoothing biases."
+    category: "reasoning"
+
+  - question: "What makes the truncated moment problem particularly suitable for modeling the realizability problem in statistical mechanics?"
+    answer: "Because correlation functions (factored moments) up to a finite order are often estimated, the truncated framework naturally accommodates the partial information scenario."
+    category: "reasoning"
+
+  - question: "Why is Diffusion Policy more stable to train compared to implicit energy-based models like IBC?"
+    answer: "Because Diffusion Policy avoids estimating intractable normalization constants and instead learns the score function directly, leading to more stable gradient updates."
+    category: "reasoning"
