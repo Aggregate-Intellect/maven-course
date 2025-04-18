@@ -1,4 +1,4 @@
-# 📚 Agentic RAG System with ArXiv + Web Fallback
+# 📚 Agentic RAG System
 
 This project implements an **intelligent research assistant** that retrieves and synthesizes information using:
 
@@ -8,7 +8,7 @@ This project implements an **intelligent research assistant** that retrieves and
 
 ## 🎯 Purpose
 
-The system is designed to provide high-quality, research-backed answers to technical and scientific questions by:
+The system is designed to provide research-backed answers to technical and scientific questions by:
 
 - Prioritizing academic and research papers from ArXiv for scientific queries
 - Falling back to web search for recent developments or non-academic topics
@@ -23,8 +23,8 @@ To use this system, you'll need:
 
    - Required for:
      - Text embeddings (for semantic search)
-     - Response generation (GPT-4 Turbo)
-     - Routing decisions (GPT-3.5 Turbo)
+     - Response generation (GPT-4o-mini)
+     - Routing decisions (GPT-4o-mini)
    - Get it from: [OpenAI Platform](https://platform.openai.com)
 
 2. **Tavily API Key**
