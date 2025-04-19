@@ -1,0 +1,20 @@
+[project]
+name = "agentic-rag-demo-3"
+version = "0.0.1"
+description = "Chainlit + Hugging Face Spaces Deployment + Evaluation"
+requires-python = ">=3.11,<3.12"
+
+[tool.black]
+line-length = 120
+
+[tool.mypy]
+exclude = "(?x)(venv|docs|tmp)"
+mypy_path = "./stubs"
+
+[tool.ruff]
+line-length = 120
+
+[tool.isort]
+profile = "black"
+line_length = 120
+skip = ["env", "venv", ".venv", ".conda"]
